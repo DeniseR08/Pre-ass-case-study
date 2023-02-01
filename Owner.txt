@@ -1,0 +1,214 @@
+import java.util.*;
+
+
+public class Owner {
+
+	 String worker;
+	String nameofd,peri;
+	int numcode;
+	 
+	
+	Owner(int numcode,String worker,String peri,String nameofd){
+		
+	
+	this.worker = worker;
+	this.nameofd = nameofd;
+	this.numcode = numcode;
+	this.peri=peri;
+	
+	}
+	public String worker() {
+		return worker;
+	} 
+	public String Nameofd() {
+		return nameofd;
+	}
+	public String Peri() {
+		return peri;
+	}
+	public int Numcode() {
+		return numcode;
+	}
+
+	public String toString() {
+		return "worker: "+worker+ "   " +"nameofd: "+nameofd+ "   " +"peri : "+peri+ "   " +"numcode : "+numcode;   	}
+	
+	public static void main(String args[]){
+		int numcode;
+		String nameofd,worker,peri;
+boolean found=false;
+	      Scanner bb=new Scanner(System.in);
+	      
+	       
+	        List<Owner> c=new ArrayList<Owner>();
+	     
+	      int i=6;
+	      Iterator<Owner> denise=c.iterator();
+	      do{
+	
+	    	  System.out.println("1.Add");
+              System.out.println("2.View");
+                System.out.println("3.Update");
+                 System.out.println("4.Delete");           
+                  System.out.println("5.Report");
+                    System.out.println("6.Exit");
+                   
+                    
+      System.out.print("enter :");
+      i=bb.nextInt();
+      
+      switch(i){
+          
+          case 1:
+       System.out.println("==========================================================================");
+       System.out.print("Please Enter The Barcode :");
+       numcode =bb.nextInt();
+       System.out.print("Please Enter Name :");
+      nameofd=bb.nextLine();
+      bb.nextLine();
+      System.out.print("Please Enter The Employee  :");
+      worker=bb.nextLine();
+      System.out.print("Please Enter The peripheral Type  :");
+      peri =bb.nextLine();
+     
+      
+       c.add(new Owner(numcode,nameofd,worker,peri));
+             break;
+      
+              
+          case 2:
+       denise=c.iterator();
+       
+       while(denise.hasNext()) {
+    	   
+    	   System.out.println(denise.next());
+       }
+              break;
+          case 3:
+        	  
+        	  String username[]= {"it2a"};
+        	  String password[]= {"castillo"};
+        	  
+        	  
+        	  System.out.print("Enter Username : ");
+        	  String user=bb.nextLine();
+        	  bb.nextLine();
+        	  System.out.print("Enter Password :");
+        	  String pass=bb.nextLine();
+        	  
+        	  
+        	  
+        	  
+        	 if(user.equalsIgnoreCase("IT2A") || pass.equalsIgnoreCase("CASTILLO")) { 
+             
+        		 
+        		 
+        		 
+              System.out.print("Please enter Number  : ");
+              numcode=bb.nextInt();
+             
+              
+              System.out.println("============================");
+              ListIterator<Owner> denisee=c.listIterator();
+              while(denisee.hasNext()){
+                  Owner p=denisee.next();
+                  if(p.Numcode()== numcode){
+               
+                	  System.out.print("Please Enter The Barcode :");
+                      numcode =bb.nextInt();
+                      System.out.print("Please Enter Name :");
+                     nameofd=bb.nextLine();
+                     bb.nextLine();
+                     System.out.print("Please Enter The Employee  :");
+                     worker=bb.nextLine();
+                     System.out.print("Please Enter The peripheral Type  :");
+                     peri =bb.nextLine();
+                    
+                     
+                      denisee.set(new Owner(numcode,nameofd,worker,peri));
+               found = true;
+               if(!found)System.out.println("You May Try Again!!!!");
+               else System.out.println("It Deleted Successfuly..!");
+               System.out.println("=============================");
+           }
+                  
+              }
+            
+              
+              
+        	 }else {
+        	 }
+              break;
+          case 4:
+         
+        	  boolean find=false;
+        	  ListIterator<Owner> b1=c.listIterator();
+        	  
+        	  System.out.println("Enter number :");
+        	  numcode=bb.nextInt();
+        	  
+        	  
+        	  while(b1.hasNext()) {
+        		  Owner e=b1.next();
+        		  
+        		  if(e.Numcode()==numcode) {
+        			  System.out.print("Please Enter The Barcode :");
+        		        numcode =bb.nextInt();
+        		        System.out.print("Please Enter Name :");
+        		       nameofd=bb.next();
+        		       System.out.print("Please Enter The Employee  :");
+        		       worker=bb.next();
+        		       System.out.print("Please Enter The peripheral Type :");
+        		       peri =bb.next();
+        		       
+        		        b1.set(new Owner(numcode,nameofd,worker,peri));
+        		        find=true;
+        		  }
+        	  }
+        	  if(!find) {
+					System.out.println("Somthing went Wrong PLease Try Again!!!!!!!");
+				}else {
+					System.out.println("Successful");
+				}
+				System.out.println("===========================================");
+				
+        	  
+        	  
+               
+              break;
+              
+          case 5:
+              System.out.println("===========================================================");
+              System.out.println("Thank You!!");
+              System.out.println("Please Come Again.!!");
+              i=0;
+              System.out.println("===========================================================");
+              break;
+              
+          case 6:
+        	  System.out.println("Thank You The Program Is Exit!!!!!!!!!!!!");
+        	  break;
+        	  
+
+              
+          default:
+              System.out.println("---------------------------------------------------------");
+              System.out.println("ERROR!!!");
+              System.out.println("Maybe You Enter a Wrong choice.!!!");
+              i=0;
+              System.out.println("---------------------------------------------------------");
+              break;
+              	
+         
+                      
+          
+      }
+          
+          }while(i!=6);
+                      
+              }
+      
+	
+}
+	
+
